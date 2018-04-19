@@ -1,0 +1,65 @@
+
+
+Checked Exception:
+********************
+
+
+These are the exceptions which may occur regularly in a program and compiler will check for those exceptions
+at “Compile Time” ,those exceptions are called Checked Exceptions
+Example: FileNotFoundException, EndOfFileException etc.
+So the compiler at compile time will check if a certain method is throwing any of the checked exceptions or not,if yes it 
+will check whether the method is handling that exception either with “Try&Catch” or “throws”,if in case the method is not
+providing the handling code then compiler will throw error saying “Unreported Exception”
+
+For example
+*****************************************************************************************************
+    import java.io.*
+    Class Example
+    {
+    public static void main(String[] args)
+     {
+    PrintWriter pw=new PrintWriter("xyz.txt"); //creating a new printwriter object to write in a file named "xyz.txt"
+    pw.println("Hello World");
+     } }
+  ***************************************************************************************************
+ The above snippet is supposed to print “Hello World” in file named “xyz.txt”
+There may be a chance of file “xyz.txt” is not present in specified directory,so the compiler will check if any 
+handling code is provided in case file is not present
+In above snippet handling code is not provided either with “Try&Catch” or “throws” so the compiler will throw error
+
+The same example with some modification:
+*************************************************************************************************************
+    import java.io.*
+    Class Example
+    {
+    public static void main(String[] args) throws FileNotFoundException
+     {
+    PrintWriter pw=new PrintWriter("xyz.txt"); //creating a new printwriter object to write in a file named "xyz.txt"
+    pw.println("Hello World");
+    }}
+   ***********************************************************************************************************
+   
+   
+   
+  Unchecked Exceptions:
+  ***********************
+
+There are some exceptions which do not occur regularly in a program,and compiler will not check for those exceptions,
+these kind of exceptions are called Unchecked Exceptions
+
+Example: ArithmeticException, NullPointerException etc
+
+For example:
+
+*************************************************************************************************************************
+    class Example{
+    public static void main(String[] args){
+    System.out.println(10/0); //Arithmetic Exception
+    }
+    } 
+**************************************************************************************************************************
+The above program should throw “Arithmetic Exception” as division with “0” is not allowed
+
+In this case the program compiles fine because compiler will not check for “Unchecked Exceptions”
+but the program will throw error at “Run Time” as division with “0” is illegal.
+     
