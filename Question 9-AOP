@@ -1,0 +1,69 @@
+
+
+Following is a modified XML configuration file to show the concept −
+
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" 
+   xmlns:aop = "http://www.springframework.org/schema/aop"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+   http://www.springframework.org/schema/aop 
+   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+
+   <aop:config>
+      <aop:aspect id = "log" ref = "logging">
+         <aop:pointcut id = "selectAll" 
+            expression = "execution(* com.silasonyango.Student.save*(..))"/>
+         <aop:before pointcut-ref = "selectAll" method = "beforeAdvice"/>
+         <aop:after pointcut-ref = "selectAll" method = "afterAdvice"/>
+      </aop:aspect>
+   </aop:config>
+
+   <!-- Definition for student bean -->
+   <bean id = "student" class = "com.silasonyango.Student">
+      <property name = "name" value = "Zara" />
+      <property name = "age" value = "11"/>      
+   </bean>
+
+   <!-- Definition for logging aspect -->
+   <bean id = "logging" class = "com.silasonyango.Logging"/> 
+      
+</beans>
+
+Class Logging
+*************
+
+public class Logging {
+   /** 
+      * This is the method which I would like to execute
+      * before a selected method execution.
+   */
+   public void beforeAdvice(){
+      System.out.println("Checking to see if parameters passed are valid.");
+   }
+   
+   /** 
+      * This is the method which I would like to execute
+      * after a selected method execution.
+   */
+   public void afterAdvice(){
+      //
+   }
+
+   /** 
+      * This is the method which I would like to execute
+      * when any method returns.
+   */
+   public void afterReturningAdvice(Object retVal) {
+      //
+   }
+
+   /**
+      * This is the method which I would like to execute
+      * if there is an exception raised.
+   */
+   public void AfterThrowingAdvice(IllegalArgumentException ex){
+      System.out.println("There has been an exception: " + ex.toString());   
+   }
+}
