@@ -17,7 +17,7 @@ public void areAnagrams(String strOne,String strTwo)
      {
       for(int j=0;j<=strTwo.length();j++)
        {
-         if(strTwo.charAt(j)==strOne.charAt(i)
+         if(strTwo.charAt(j)==strOne.charAt(i))
           {
            --two;
           }
