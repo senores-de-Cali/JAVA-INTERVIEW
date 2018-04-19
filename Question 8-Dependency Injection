@@ -95,9 +95,9 @@ Following is the configuration file Beans.xml which has configuration for the se
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
    <!-- Definition for textEditor bean using inner bean -->
-   <bean id = "textEditor" class = "com.tutorialspoint.TextEditor">
+   <bean id = "textEditor" class = "com.silasonyango.TextEditor">
       <property name = "spellChecker">
-         <bean id = "spellChecker" class = "com.tutorialspoint.SpellChecker"/>
+         <bean id = "spellChecker" class = "com.silasonyango.SpellChecker"/>
       </property>
    </bean>
 
