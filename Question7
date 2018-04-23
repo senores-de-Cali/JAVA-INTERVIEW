@@ -1,0 +1,40 @@
+public class Employee{
+private String strName,strDOB,strUID,strAddress,strWhenSigned,strExpiryDate,strContractType;
+
+public Employee(String strName,String strDOB,String strUID,String strAddress,String strWhenSigned,String strExpiryDate,String strContractType)
+{
+this.strName=strName;
+this.strDOB=strDOB;
+this.strUID=strUID;
+this.strAddress=strAddress;
+this.strWhenSigned=strWhenSigned;
+this.strExpiryDate=strExpiryDate;
+this.strContractType=strContractType;
+
+
+
+}
+public String getName()
+{return strName;}
+
+public String getstrDOB()
+{return strDOB;}
+
+public String getstrUID()
+{return strUID;}
+
+public String getstrWhenSigned()
+{return strWhenSigned;}
+
+public String getstrAddress()
+{return strAddress;}
+
+public String getstrExpiryDate()
+{return strExpiryDate;}
+
+public String getstrContractType()
+{return strContractType;}
+
+
+
+}
